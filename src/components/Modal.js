@@ -109,11 +109,13 @@ export default function Modal(props) {
                   );
                 })}
 
-              {(contactList.length == 0 || props.isLoading) && (
+              {props.isLoading && (
                 <div className="spinner-border" role="status">
                   <span className="visually-hidden">Loading...</span>
                 </div>
               )}
+
+              {!props.isLoading && contactList.length == 0 && <p>No data</p>}
             </Scrollbars>
           </div>
 

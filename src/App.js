@@ -55,7 +55,11 @@ function App() {
       setAllResults(false);
 
       (async function getData() {
+        setIsPageLoading(true);
+
         const result = await callApi(1);
+
+        setIsPageLoading(false);
 
         if (result.data.contacts) {
           setContacts(Object.values(result.data.contacts));
